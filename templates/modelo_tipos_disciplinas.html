@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MODELO CON TIPOS DISCIPLINAS INVOLUCRADAS</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+
+
+</head>
+<body>
+   
+
+    <form method="POST" action="/modelo_tipos_disciplinas">
+        <nav>
+            <a href="/">Inicio</a>
+            <a href="/modelo_tipoing_tarifas">Modelo 2</a>
+            <a href="/modelo_con_todo">Modelo 3</a>
+        </nav>
+    <div class="container">
+        
+        <!-- Características Generales -->
+        <div class="section">
+            <h2>Características Generales</h2>
+            <div class="form-container">
+            <div class="form-group">
+                <label>Cliente:</label>  <!-- cliente-->
+                <select name ="cliente"><option></option>
+                    <option>BHP</option>
+                    <option>MLP</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Proveedores:</label>
+                <select name = "proveedores"><option></option> <!--proveedores-->
+                    <option>PENTA</option>
+                    <option>K1111</option>
+                    <option>DLS</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>HH:</label>
+                <input type="text" name="HH" placeholder="Label*"> <!--HH-->
+            </div>
+            <div class="form-group">
+                <label>Entregables:</label>
+                <input type="text" name = "entregables" placeholder="Label*"> <!--entregables-->
+            </div>
+        
+            
+        </div>
+        <div class="form-container">
+            <div class="form-group">
+                <label>Precio propuesta:</label>
+                <input type="text" name="precio_propuesta" placeholder="Label*"> 
+            </div>
+            <div class="form-group">
+                <label>Precio keypro:</label>
+                <input type="text" name="precio_keypro" placeholder="Label*"> 
+        </div>
+        <br><br>
+        <div class="disciplinas-grid">
+      
+        <label>Disciplinas:</label>
+
+      
+            <div class="form-group">
+                <label>Mecánica:</label>
+                <input type="text" name="hh_mecanica" placeholder="Label*"> 
+            </div>
+            <div class="form-group">
+                <label>Piping:</label>
+                <input type="text" name="hh_piping" placeholder="Label*"> 
+            </div>
+        <div class="form-group">
+            <label>Electricidad:</label>
+            <input type="text" name="hh_electricidad" placeholder="Label*"> 
+        </div>
+        <div class="form-group">
+        <label>Estructural:</label>
+        <input type="text" name="hh_estructural" placeholder="Label*"> 
+        </div>
+        <div class="form-group">
+            <label>Estudios y general:</label>
+            <input type="text" name="hh_estudiosygeneral" placeholder="Label*"> 
+        </div>
+        <div class="form-group">
+        <label>Instrumentación:</label>
+        <input type="text" name="hh_instrumentacion" placeholder="Label*"> 
+        </div>
+        <div class="form-group">
+            <label>Hormigones:</label>
+            <input type="text" name="hh_hormigones" placeholder="Label*"> 
+        </div>
+        <div class="form-group">
+        <label>General:</label>
+        <input type="text" name="hh_general" placeholder="Label*"> 
+        </div>
+        <div class="form-group">
+            <label>Hidráulica:</label>
+            <input type="text" name="hh_hidraulica" placeholder="Label*"> 
+        </div>
+        <div class="form-group">
+        <label>Estudios disciplinarios:</label>
+        <input type="text" name="hh_estudiosdisciplinarios" placeholder="Label*"> 
+        </div>
+        <div class="form-group">
+            <label>Civil:</label>
+            <input type="text" name="hh_civil" placeholder="Label*"> 
+        </div>
+        <div class="form-group">
+        <label>IPS:</label>
+        <input type="text" name="hh_ips" placeholder="Label*"> 
+        </div>
+        <div class="form-group">
+            <label>Terreno:</label>
+            <input type="text" name="hh_terreno" placeholder="Label*"> 
+        </div>
+       
+       <input type="hidden" name="disciplinas" id="disciplinas">
+      
+    </div>
+    
+</div>           
+<div class="boton-opciones">
+    <button type="button" class="boton-opcion" onclick="toggleSeleccion(this, 'detalles_modelo')">Detalles Modelo</button>
+    <div class="textarea-contenedor">
+        <div class="resumen-resultado">
+          Accuracy: <strong>77%</strong><br>
+          Precision <span class="perdidas">propuestas perdidas</span>: <strong>86%</strong><br>
+          Precision <span class="ganadas">propuestas ganadas</span>: <strong>64%</strong><br><br>
+          Recall: <strong>79%</strong> <span class="perdidas">(de las verdaderas perdidas detecta el 79%)</span><br>
+          Recall: <strong>74%</strong> <span class="ganadas">(de las verdaderas ganadas detecta el 74%)</span><br><br>
+          Propuestas perdidas: <strong>176</strong><br>
+          Propuestas ganadas: <strong>90</strong><br><br>
+          Pseudo R²: <span class="pseudo">0.24</span> → modelos con pseudo r2 entre 0.2 y 0.4 son considerados aceptables 
+        </div>
+      </div>
+    
+</div>
+        </div>
+    </div>
+    <button type="submit">Enviar</button>
+</form>
+
+    <script>
+        function toggleSeleccion(button, label) {
+        const contenedor = button.parentNode.querySelector('.textarea-contenedor');
+        if (contenedor.style.display === 'none') {
+            contenedor.style.display = 'block';
+        } else {
+            contenedor.style.display = 'none';
+        }
+    }
+
+        document.querySelector('form').addEventListener('submit', function(event) {
+            // Lista de IDs o names de los inputs
+            const disciplinaInputNames = [
+                "hh_mecanica",
+                "hh_piping",
+                "hh_electricidad",
+                "hh_estructural",
+                "hh_estudiosygeneral",
+                "hh_instrumentacion",
+                "hh_hormigones",
+                "hh_general",
+                "hh_hidraulica",
+                "hh_estudiosdisciplinarios",
+                "hh_civil",
+                "hh_ips",
+                "hh_terreno"
+            ];
+            
+            // Obtenemos los valores reales de los inputs
+            const disciplinaValores = disciplinaInputNames.map(name => {
+                const input = document.getElementsByName(name)[0];
+                return input ? input.value.trim() : ""; // Si no existe o está vacío
+            });
+    
+            // Crea el string separados por coma
+            const disciplinasString = disciplinaValores.join(',');
+    
+            // Mete el string en el input hidden
+            document.getElementById('disciplinas').value = disciplinasString;
+        });
+    </script>
+   <div class="imagen-resultado">
+    <h2>Impacto de las variables</h2>
+    <img src="{{ url_for('static', filename='images/impacto_variables_modelointer_sinfondo.png') }}" alt="Impacto de las variables" style="max-width: 100%; height: auto;">
+</div>
+<div class="imagen-resultado">
+    <h2>Impacto de las variables</h2>
+    <img src="{{ url_for('static', filename='images/heatmap_modelointer_sinfondo.png') }}" alt="Impacto de las variables" style="max-width: 100%; height: auto;">
+</div>
+<h1>Impacto de Cambios en Variables</h1>
+
+<table class="tabla-impacto">
+    <thead>
+        <tr>
+            <th>Variable</th>
+            <th>Valor Actual</th>
+            <th>Nuevo Valor</th>
+            <th>Probabilidad Inicial</th>
+            <th>Probabilidad Nueva</th>
+            <th>Impacto (%)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>UF/HH</td><td>100</td><td>200</td><td>50,01</td><td>50,02</td><td class="positivo">+0,01</td></tr>
+        <tr><td>UF/Entr.</td><td>100</td><td>200</td><td>51,55</td><td>53,09</td><td class="positivo">+1,55</td></tr>
+        <tr><td>UF</td><td>100</td><td>200</td><td>47,98</td><td>45,99</td><td class="negativo">-2,00</td></tr>
+        <tr><td>Entr.</td><td>100</td><td>200</td><td>50,24</td><td>50,48</td><td class="positivo">+0,24</td></tr>
+        <tr><td>Contrato Marco_x</td><td>100</td><td>200</td><td>50,02</td><td>50,03</td><td class="positivo">+0,02</td></tr>
+        <tr><td>Cliente_x</td><td>100</td><td>200</td><td>50,00</td><td>49,99</td><td class="negativo">-0,01</td></tr>
+        <tr><td>Total $;UF/USD</td><td>100</td><td>200</td><td>50,00</td><td>50,00</td><td>0,00</td></tr>
+        <tr><td>HH</td><td>100</td><td>200</td><td>49,96</td><td>49,92</td><td class="negativo">-0,04</td></tr>
+        <tr><td>$;UF;USD</td><td>100</td><td>200</td><td>50,00</td><td>50,00</td><td>0,00</td></tr>
+        <tr><td>UF3</td><td>100</td><td>200</td><td>54,17</td><td>58,23</td><td class="positivo">+4,12</td></tr>
+        <tr><td>TIPO DE INGENIERÍA</td><td>100</td><td>200</td><td>49,96</td><td>49,92</td><td class="negativo">-0,04</td></tr>
+        <tr><td>Total HH mecánica</td><td>100</td><td>200</td><td>47,21</td><td>44,43</td><td class="negativo">-2,78</td></tr>
+        <tr><td>Total HH piping</td><td>100</td><td>200</td><td>52,06</td><td>54,12</td><td class="positivo">+2,06</td></tr>
+        <tr><td>Total HH electricidad</td><td>100</td><td>200</td><td>49,62</td><td>49,24</td><td class="negativo">-0,38</td></tr>
+        <tr><td>Total HH estructural</td><td>100</td><td>200</td><td>50,01</td><td>50,01</td><td>0,00</td></tr>
+        <tr><td>Total HH estudios y general</td><td>100</td><td>200</td><td>52,45</td><td>54,88</td><td class="positivo">+2,43</td></tr>
+        <tr><td>Total HH instrumentación</td><td>100</td><td>200</td><td>51,81</td><td>53,61</td><td class="positivo">+1,80</td></tr>
+        <tr><td>Total HH hormigones</td><td>100</td><td>200</td><td>49,94</td><td>49,89</td><td class="negativo">-0,05</td></tr>
+        <tr><td>Total HH general</td><td>100</td><td>200</td><td>49,09</td><td>48,17</td><td class="negativo">-0,91</td></tr>
+        <tr><td>Total HH hidráulica</td><td>100</td><td>200</td><td>49,17</td><td>48,34</td><td class="negativo">-0,83</td></tr>
+        <tr><td>Total HH estudios disciplinarios</td><td>100</td><td>200</td><td>52,59</td><td>55,17</td><td class="positivo">+2,58</td></tr>
+        <tr><td>Total HH civil</td><td>100</td><td>200</td><td>49,62</td><td>49,24</td><td class="negativo">-0,38</td></tr>
+        <tr><td>Total HH IPS</td><td>100</td><td>200</td><td>47,98</td><td>45,98</td><td class="negativo">-2,01</td></tr>
+        <tr><td>Total HH terreno</td><td>100</td><td>200</td><td>49,36</td><td>48,72</td><td class="negativo">-0,64</td></tr>
+    </tbody>
+</table>
+</body>
+</html>

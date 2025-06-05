@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MODELO CON TODO AAAAAAAAAA</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+
+
+</head>
+<body>
+   
+    <form method="POST" action="/modelo_con_todo">
+        <nav>
+            <a href="/">Inicio</a>
+            <a href="/modelo_tipos_disciplinas">Modelo 2</a>
+            <a href="/modelo_con_todo">Modelo 3</a>
+        </nav>
+    <div class="container">
+        
+        <!-- Características Generales -->
+        <div class="section">
+            <h2>Características Generales</h2>
+            <div class="form-container">
+            <div class="form-group">
+                <label>Cliente:</label>  <!-- cliente-->
+                <select name ="cliente"><option></option>
+                    <option>BHP</option>
+                    <option>MLP</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Proveedores:</label>
+                <select name = "proveedores"><option></option> <!--proveedores-->
+                    <option>PENTA</option>
+                    <option>K1111</option>
+                    <option>DLS</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>HH:</label>
+                <input type="text" name="HH" placeholder="Label*"> <!--HH-->
+            </div>
+            <div class="form-group">
+                <label>Entregables:</label>
+                <input type="text" name = "entregables" placeholder="Label*"> <!--entregables-->
+            </div>
+            <div class="form-group">
+                <label>Jefe de Proyecto:</label>
+                <select><option>Label*</option></select>
+            </div>
+            <div class="form-group">
+                <label>Precio propuesta:</label>
+                <input type="text" name="precio_propuesta" placeholder="Label*"> 
+            </div>
+            <div class="form-group">
+                <label>Precio keypro:</label>
+                <input type="text" name="precio_keypro" placeholder="Label*"> 
+        </div>
+            
+        </div>
+        
+        <br><br>
+        <div class="section">
+            <hr style="width: 80%; margin: 20px; border: 0,1px solid #000;">
+            <h2>HH disciplinas: </h2>
+
+            <div class="form-container">
+          <div class="disciplinas-grid">
+      
+      
+            <div class="form-group">
+                <label>Mecánica:</label>
+                <input type="text" name="hh_mecanica" placeholder="Label*"> 
+            </div>
+            <div class="form-group">
+                <label>Piping:</label>
+                <input type="text" name="hh_piping" placeholder="Label*"> 
+            </div>
+        <div class="form-group">
+            <label>Electricidad:</label>
+            <input type="text" name="hh_electricidad" placeholder="Label*"> 
+        </div>
+        <div class="form-group">
+        <label>Estructural:</label>
+        <input type="text" name="hh_estructural" placeholder="Label*"> 
+        </div>
+        <div class="form-group">
+            <label>Estudios y general:</label>
+            <input type="text" name="hh_estudiosygeneral" placeholder="Label*"> 
+        </div>
+        <div class="form-group">
+        <label>Instrumentación:</label>
+        <input type="text" name="hh_instrumentacion" placeholder="Label*"> 
+        </div>
+        <div class="form-group">
+            <label>Hormigones:</label>
+            <input type="text" name="hh_hormigones" placeholder="Label*"> 
+        </div>
+        <div class="form-group">
+        <label>General:</label>
+        <input type="text" name="hh_general" placeholder="Label*"> 
+        </div>
+        <div class="form-group">
+            <label>Hidráulica:</label>
+            <input type="text" name="hh_hidraulica" placeholder="Label*"> 
+        </div>
+        <div class="form-group">
+        <label>Estudios disciplinarios:</label>
+        <input type="text" name="hh_estudiosdisciplinarios" placeholder="Label*"> 
+        </div>
+        <div class="form-group">
+            <label>Civil:</label>
+            <input type="text" name="hh_civil" placeholder="Label*"> 
+        </div>
+        <div class="form-group">
+        <label>IPS:</label>
+        <input type="text" name="hh_ips" placeholder="Label*"> 
+        </div>
+        <div class="form-group">
+            <label>Terreno:</label>
+            <input type="text" name="hh_terreno" placeholder="Label*"> 
+        </div>
+        
+        
+       
+    </div>
+</div>
+        <input type="hidden" name="disciplinas" id="disciplinas">
+       
+    </div>
+
+        <!-- HH Profesionales -->
+        <div class="section">
+            <hr style="width: 80%; margin: 20px; border: 0,1px solid #000;">
+            <h2>Tarifas profesionales: </h2>
+            <div class="form-container">
+            <div class="form-group">
+                
+                    
+            </div>
+            <div class="form-group">
+                <label>Tarifa Jefe Proyecto:</label>
+                <input type="text" name="tarifa_jefeproyecto" placeholder="">
+                <label>Tarifa Consultor:</label>
+                <input type="text" name="tarifa_consultor" placeholder="">
+
+            </div>
+            <div class="form-group">
+                <label>Tarifa ingeniero senior:</label>
+                <input type="text" name="tarifa_ingsenior" placeholder="">
+                <label>Tarifa Jefe de disciplina:</label>
+                <input type="text" name="tarifa_jefedisciplina" placeholder="">
+
+            </div>
+            <div class="form-group">
+                <label>Tarifa ingeniero A:</label>
+                <input type="text" name="tarifa_ingenieroA" placeholder="">
+                <label>Tarifa ingeniero B:</label>
+                <input type="text" name="tarifa_ingenieroB" placeholder="">
+                
+
+            </div>
+            <div class="form-group">
+                <label>Tarifa Proyectista:</label>
+                <input type="text" name="tarifa_proyectista" placeholder="">
+                <label>Tarifa dibujante:</label>
+                <input type="text" name="tarifa_dibujante" placeholder="">
+
+            </div>
+            <div class="form-group">
+                <label>Tarifa Control documentos:</label>
+                <input type="text" name="tarifa_controldocumentos" placeholder="">
+                <label>Tarifa Control proyectos:</label>
+                <input type="text" name="tarifa_controlproyectos" placeholder="">
+
+            </div>
+            <div class="form-group">
+                <label>Tarifa Calidad:</label>
+                <input type="text" name="tarifa_calidad" placeholder="">
+              
+
+            </div>
+        </div>
+         <!-- HH Profesionales -->
+         <div class="section">
+            <hr style="width: 80%; margin: 20px; border: 0,1px solid #000;">
+            <h2>HH Totales por profesional: </h2>
+            <div class="form-container">
+            <div class="form-group">
+                
+                    
+            </div>
+            <div class="form-group">
+                <label>HH Jefe Proyecto:</label>
+                <input type="text" name="hh_jefeproyecto" placeholder="">
+                <label>HH  Ingeniero senior:</label>
+                <input type="text" name="hh_ingenierosenior" placeholder="">
+
+            </div>
+            <div class="form-group">
+                <label>HH Lider de disciplina:</label>
+                <input type="text" name="hh_liderdisciplina" placeholder="">
+                <label>HH Totales Ingeniero A:</label>
+                <input type="text" name="hh_ingenieroA" placeholder="">
+
+            </div>
+            <div class="form-group">
+                <label>HH Proyectista A:</label>
+                <input type="text" name="hh_proyectistaA" placeholder="">
+                <label>HH Control documentos:</label>
+                <input type="text" name="hh_controldocumentos" placeholder="">
+                
+
+            </div>
+            <div class="form-group">
+                <label>HH Control proyecto:</label>
+                <input type="text" name="hh_controlproyecto" placeholder="">
+                
+            </div>
+            
+        </div>
+        </div>
+        <div class="boton-opciones">
+            <button type="button" class="boton-opcion" onclick="toggleSeleccion(this, 'detalles_modelo')">Detalles Modelo</button>
+            <div class="textarea-contenedor">
+                <div class="resumen-resultado">
+                  Accuracy: <strong>79%</strong><br><br>
+                  Precision <span class="perdidas">propuestas perdidas</span>: <strong>90%</strong><br>
+                  Precision <span class="ganadas">propuestas ganadas</span>: <strong>65%</strong><br><br>
+                  Recall: <strong>78%</strong> <span class="perdidas">(de las verdaderas perdidas detecta el 78%)</span><br>
+                  Recall: <strong>82%</strong> <span class="ganadas">(de las verdaderas ganadas detecta el 82%)</span><br><br>
+                  Propuestas perdidas: <strong>176</strong><br>
+                  Propuestas ganadas: <strong>90</strong><br><br>
+                  Pseudo R²: <span class="pseudo">0.366</span> → modelos con pseudo r2 entre 0.2 y 0.4 son considerados aceptables y captura bien la relación entre las variables y la variable objetivo
+                </div>
+              </div>
+            
+        </div>
+    </div>
+    <button type="submit">Enviar</button>
+</form>
+<script>
+    function toggleSeleccion(button, label) {
+        const contenedor = button.parentNode.querySelector('.textarea-contenedor');
+        if (contenedor.style.display === 'none') {
+            contenedor.style.display = 'block';
+        } else {
+            contenedor.style.display = 'none';
+        }
+    }
+
+        document.querySelector('form').addEventListener('submit', function(event) {
+            // Selecciona todos los inputs de disciplina
+            const disciplinaInputs = [
+                "hh_mecanica",
+                "hh_piping",
+                "hh_electricidad",
+                "hh_estructural",
+                "hh_estudiosygeneral",
+                "hh_instrumentacion",
+                "hh_hormigones",
+                "hh_general",
+                "hh_hidraulica",
+                "hh_estudiosdisciplinarios",
+                "hh_civil",
+                "hh_ips",
+                "hh_terreno"
+            ];
+    
+         // Obtenemos los valores reales de los inputs
+         const disciplinaValores = disciplinaInputNames.map(name => {
+                const input = document.getElementsByName(name)[0];
+                return input ? input.value.trim() : ""; // Si no existe o está vacío
+            });
+    
+            // Crea el string separados por coma
+            const disciplinasString = disciplinaValores.join(',');
+    
+            // Mete el string en el input hidden
+            document.getElementById('disciplinas').value = disciplinasString;
+    });
+    </script>
+     <div class="imagen-resultado">
+        <h2>Impacto de las variables</h2>
+        <img src="{{ url_for('static', filename='images/heatmap_variables_sinfondo.png') }}" alt="Impacto de las variables" style="max-width: 100%; height: auto;">
+    </div>
+    <div class="imagen-resultado">
+        <h2>Impacto de las variables</h2>
+        <img src="{{ url_for('static', filename='images/impacto_variables_sinfondo.png') }}" alt="Impacto de las variables" style="max-width: 100%; height: auto;">
+    </div>
+    <h1>Impacto de Cambios en Variables</h1>
+
+<table class="tabla-impacto">
+    <thead>
+        <tr>
+            <th>Variable</th>
+            <th>Valor Actual</th>
+            <th>Nuevo Valor</th>
+            <th>Probabilidad Inicial</th>
+            <th>Probabilidad Nueva</th>
+            <th>Impacto (%)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>UF/HH</td><td>100</td><td>200</td><td>50.00</td><td>50.00</td><td>0.00</td></tr>
+        <tr><td>UF/Entr.</td><td>100</td><td>200</td><td>49.81</td><td>49.63</td><td class="negativo">-0.19</td></tr>
+        <tr><td>UF</td><td>100</td><td>200</td><td>48.84</td><td>47.68</td><td class="negativo">-1.16</td></tr>
+        <tr><td>Entr.</td><td>100</td><td>200</td><td>50.22</td><td>50.45</td><td class="positivo">+0.22</td></tr>
+        <tr><td>Contrato Marco_x</td><td>100</td><td>200</td><td>50.00</td><td>50.01</td><td class="positivo">+0.00</td></tr>
+        <tr><td>Cliente_x</td><td>100</td><td>200</td><td>49.82</td><td>49.87</td><td class="positivo">+0.05</td></tr>
+        <tr><td>Total $;UF/USD</td><td>100</td><td>200</td><td>50.00</td><td>50.00</td><td>0.00</td></tr>
+        <tr><td>HH</td><td>100</td><td>200</td><td>49.98</td><td>49.97</td><td class="negativo">-0.01</td></tr>
+        <tr><td>$;UF;USD</td><td>100</td><td>200</td><td>50.00</td><td>50.00</td><td>0.00</td></tr>
+        <tr><td>UF3</td><td>100</td><td>200</td><td>50.75</td><td>52.72</td><td class="positivo">+1.97</td></tr>
+        <tr><td>Total HH general</td><td>100</td><td>200</td><td>50.00</td><td>49.97</td><td class="negativo">-0.03</td></tr>
+        <tr><td>Total HH piping</td><td>100</td><td>200</td><td>50.00</td><td>50.00</td><td>0.00</td></tr>
+        <tr><td>Total HH instrumentacion</td><td>100</td><td>200</td><td>50.00</td><td>50.00</td><td>0.00</td></tr>
+        <tr><td>Total HH estudios disciplinarios</td><td>100</td><td>200</td><td>50.00</td><td>50.00</td><td>0.00</td></tr>
+        <tr><td>Total HH mecanica</td><td>100</td><td>200</td><td>50.00</td><td>49.99</td><td class="negativo">-0.01</td></tr>
+        <tr><td>Tarifa ingeniero A CLP</td><td>100</td><td>200</td><td>50.00</td><td>50.00</td><td>0.00</td></tr>
+        <tr><td>Total HH estudios y general</td><td>100</td><td>200</td><td>50.00</td><td>50.00</td><td>0.00</td></tr>
+        <tr><td>Total HH IPS</td><td>100</td><td>200</td><td>50.00</td><td>50.00</td><td>0.00</td></tr>
+        <tr><td>HH totales jefe proyecto</td><td>100</td><td>200</td><td>50.00</td><td>49.99</td><td class="negativo">-0.01</td></tr>
+        <tr><td>Tarifa jefe proyecto CLP</td><td>100</td><td>200</td><td>50.00</td><td>50.00</td><td>0.00</td></tr>
+        <tr><td>Total HH estructural</td><td>100</td><td>200</td><td>50.00</td><td>50.00</td><td>0.00</td></tr>
+        <tr><td>Total HH hidraulica</td><td>100</td><td>200</td><td>50.00</td><td>49.99</td><td class="negativo">-0.01</td></tr>
+        <tr><td>HH totales lider de disciplina</td><td>100</td><td>200</td><td>50.00</td><td>50.00</td><td>0.00</td></tr>
+        <tr><td>Total HH hormigones</td><td>100</td><td>200</td><td>50.00</td><td>50.00</td><td>0.00</td></tr>
+        <tr><td>HH totales proyectista A</td><td>100</td><td>200</td><td>50.00</td><td>50.00</td><td>0.00</td></tr>
+        <tr><td>Total HH electricidad</td><td>100</td><td>200</td><td>50.00</td><td>50.00</td><td>0.00</td></tr>
+        <tr><td>Total HH civil</td><td>100</td><td>200</td><td>50.00</td><td>50.00</td><td>0.00</td></tr>
+        <tr><td>Tarifa proyectista CLP</td><td>100</td><td>200</td><td>50.00</td><td>50.00</td><td>0.00</td></tr>
+        <tr><td>Tarifa dibujante CLP</td><td>100</td><td>200</td><td>50.00</td><td>50.00</td><td>0.00</td></tr>
+        <tr><td>HH</td><td>100</td><td>200</td><td>50.00</td><td>49.99</td><td class="negativo">-0.01</td></tr>
+        <tr><td>Tarifa control documentos CLP</td><td>100</td><td>200</td><td>50.00</td><td>50.00</td><td>0.00</td></tr>
+        <tr><td>Total HH terreno</td><td>100</td><td>200</td><td>50.00</td><td>50.00</td><td>0.00</td></tr>
+    </tbody>
+</table>
+</body>
+</html>

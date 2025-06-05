@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MODELO CON TODO AAAAAAAAAA</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+
+
+</head>
+<body>
+    <form method="POST" action="/modelo_con_todo">
+        <nav>
+            <a href="/">Inicio</a>
+            <a href="/modelo_tipos_disciplinas">Modelo 2</a>
+            <a href="/modelo_con_todo">Modelo 3</a>
+        </nav>
+    <div class="container">
+        
+        <!-- Características Generales -->
+        <div class="section">
+            <h2>Características Generales</h2>
+            <div class="form-container">
+            <div class="form-group">
+                <label>Cliente:</label>  <!-- cliente-->
+                <select name ="cliente"><option></option>
+                    <option>BHP</option>
+                    <option>MLP</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Proveedores:</label>
+                <select name = "proveedores"><option></option> <!--proveedores-->
+                    <option>PENTA</option>
+                    <option>K1111</option>
+                    <option>DLS</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>HH:</label>
+                <input type="text" name="HH" placeholder="Label*"> <!--HH-->
+            </div>
+            <div class="form-group">
+                <label>Entregables:</label>
+                <input type="text" name = "entregables" placeholder="Label*"> <!--entregables-->
+            </div>
+            <div class="form-group">
+                <label>Jefe de Proyecto:</label>
+                <select><option>Label*</option></select>
+                <input type="text" placeholder="Label*">
+                <input type="text" placeholder="Label*">
+                <input type="text" placeholder="Label*">
+            </div>
+            
+        </div>
+        <div class="form-container">
+            <div class="form-group">
+                <label>Precio propuesta:</label>
+                <input type="text" name="precio_propuesta" placeholder="Label*"> 
+            </div>
+            <div class="form-group">
+                <label>Precio keypro:</label>
+                <input type="text" name="precio_keypro" placeholder="Label*"> 
+        </div>
+        <br><br>
+        <label>Seleccione disciplinas:</label>
+        <div class="boton-opciones">
+            <button type="button" class="boton-opcion" onclick="toggleSeleccion(this,  'mecanica')">Mecánica</button>
+            <button type="button" class="boton-opcion"onclick="toggleSeleccion(this,  'piping')">Piping</button>
+            <button type="button" class="boton-opcion"onclick="toggleSeleccion(this,  'electricidad')">Electricidad</button>
+            <button type="button" class="boton-opcion"onclick="toggleSeleccion(this,  'estructural')">Estructural</button>
+
+        </div>
+        <div class="boton-opciones">
+            <button type="button" class="boton-opcion" onclick="toggleSeleccion(this,  'estudiosygeneral')">Estudios y general</button>
+            <button type="button" class="boton-opcion"onclick="toggleSeleccion(this,  'instrumentacion')">Instrumentación</button>
+            <button type="button" class="boton-opcion"onclick="toggleSeleccion(this,  'hormigones')">Hormigones</button>
+            <button type="button" class="boton-opcion"onclick="toggleSeleccion(this,  'general')">General</button>
+            <button type="button" class="boton-opcion"onclick="toggleSeleccion(this,  'hidraulica')">Hidraúlica</button>
+
+        </div>
+        <div class="boton-opciones">
+            <button type="button" class="boton-opcion"onclick="toggleSeleccion(this,  'estudiosdisciplinarios')">Estudios disciplinarios</button>
+            <button type="button" class="boton-opcion"onclick="toggleSeleccion(this,  'civil')">Civil</button>
+            <button type="button" class="boton-opcion"onclick="toggleSeleccion(this,  'IPS')">IPS</button>
+            <button type="button" class="boton-opcion"onclick="toggleSeleccion(this,  'terreno')">Terreno</button>
+
+        </div>
+        <input type="hidden" name="disciplinas" id="disciplinas">
+        <script>
+           function toggleSeleccion(boton, valor) {
+        boton.classList.toggle('seleccionado');  // Activa o desactiva el color
+
+        const input = document.getElementById('disciplinas');
+        let seleccionados = input.value ? input.value.split(',') : [];
+
+        if (seleccionados.includes(valor)) {
+            // Si ya estaba seleccionado, lo quitamos
+            seleccionados = seleccionados.filter(item => item !== valor);
+        } else {
+            // Si no estaba seleccionado, lo agregamos
+            seleccionados.push(valor);
+        }
+
+        input.value = seleccionados.join(',');
+        console.log('Seleccionados:', input.value);
+    }
+        </script>
+    </div>
+
+        <!-- HH Profesionales -->
+        <div class="section">
+            <hr style="width: 80%; margin: 20px; border: 0,1px solid #000;">
+            <h2>HH Profesionales</h2>
+            <div class="form-container">
+            <div class="form-group">
+                <label>Disciplinas:</label>
+                <select>
+                    <option></option>
+                    <option>Mecánica</option>
+                    <option>Piping</option>
+                    
+                </select>
+                    <select>
+                        <option></option>
+                        <option>Mecánica</option>
+                        <option>Piping</option></select>
+                        <select>
+                            <option></option>
+                            <option>Mecánica</option>
+                            <option>Piping</option></select>
+                            <select>
+                                <option></option>
+                                <option>Mecánica</option>
+                                <option>Piping</option></select>
+                                <select>
+                                    <option></option>
+                                    <option>Mecánica</option>
+                                    <option>Piping</option></select>
+            </div>
+            <div class="form-group">
+                <label>HH Jefe Proyecto:</label>
+                <input type="text" name="hh_disciplina1_jefe_proyecto" placeholder="">
+                <input type="text" name="hh_disciplina2_jefe_proyecto" placeholder="">
+                <input type="text" name="hh_disciplina3_jefe_proyecto" placeholder="">
+                <input type="text" name="hh_disciplina4_jefe_proyecto" placeholder="">
+                <input type="text" name="hh_disciplina5_jefe_proyecto" placeholder="">
+
+            </div>
+            <div class="form-group">
+                <label>HH Jefe Disciplina:</label>
+                <input type="text" name="hh_jefe_proyecto_1" placeholder="">
+                <input type="text" placeholder="">
+                <input type="text" placeholder="">
+                <input type="text" placeholder="">
+                <input type="text" placeholder="">
+
+            </div>
+            <div class="form-group">
+                <label>HH Ingeniero Senior:</label>
+                <input type="text" placeholder="">
+                <input type="text" placeholder="">
+                <input type="text" placeholder="">
+                <input type="text" placeholder="">
+                <input type="text" placeholder="">
+
+            </div>
+            <div class="form-group">
+                <label>HH Ingeniero A:</label>
+                <input type="text" placeholder="">
+                <input type="text" placeholder="">
+                <input type="text" placeholder="">
+                <input type="text" placeholder="">
+                <input type="text" placeholder="">
+
+            </div>
+            <div class="form-group">
+                <label>HH Proyectista A:</label>
+                <input type="text" placeholder="">
+                <input type="text" placeholder="">
+                <input type="text" placeholder="">
+                <input type="text" placeholder="">
+                <input type="text" placeholder="">
+
+            </div>
+            <div class="form-group">
+                <label>Control Documental:</label>
+                <input type="text" placeholder="">
+                <input type="text" placeholder="">
+                <input type="text" placeholder="">
+                <input type="text" placeholder="">
+                <input type="text" placeholder="">
+
+            </div>
+        </div>
+        </div>
+    </div>
+    <button type="submit">Enviar</button>
+</form>
+</body>
+</html>

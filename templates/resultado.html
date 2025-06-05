@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Características</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+
+
+</head>
+<body>
+    <form method="POST">
+    <div class="container">
+        
+        <!-- Características Generales -->
+        <div class="section">
+            
+            <div class="form-container">
+
+                <title>Resultado del Modelo</title>
+                <h1>Resultado del Modelo</h1>
+                 <p>El número predicho por el modelo es: <strong>{{ resultado }}</strong></p>
+                <a href="/">Volver al formulario</a>
+            <div class="form-group">
+                <label>Cliente:</label>  <!-- cliente-->
+                <select name ="cliente"><option></option>
+                    <option>BHP</option>
+                    <option>MLP</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Proveedores:</label>
+                <select name = "proveedores"><option></option> <!--proveedores-->
+                    <option>PENTA</option>
+                    <option>K1111</option>
+                    <option>DLS</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>HH:</label>
+                <input type="text" name="HH" placeholder="Label*"> <!--HH-->
+            </div>
+            <div class="form-group">
+                <label>Entregables:</label>
+                <input type="text" name = "entregables" placeholder="Label*"> <!--entregables-->
+            </div>
+            <div class="form-group">
+                <label>Jefe de Proyecto:</label>
+                <select><option>Label*</option></select>
+                <input type="text" placeholder="Label*">
+                <input type="text" placeholder="Label*">
+                <input type="text" placeholder="Label*">
+            </div>
+            
+        </div>
+        <div class="form-container">
+            <div class="form-group">
+                <label>Precio propuesta:</label>
+                <input type="text" name="precio_propuesta" placeholder="Label*"> 
+            </div>
+            <div class="form-group">
+                <label>Precio keypro:</label>
+                <input type="text" name="precio_keypro" placeholder="Label*"> 
+        </div>
+        
+       
+    </div>
+
+        
+    </div>
+    </div>
+    </div>
+  
+</form>
+</body>
+</html>

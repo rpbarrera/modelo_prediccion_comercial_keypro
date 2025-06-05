@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Características</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+
+
+</head>
+<body>
+    <form method="POST">
+        <nav>
+            <a href="/">Inicio</a>
+            <a href="/modelo_tipos_disciplinas">Modelo 2</a>
+            <a href="/modelo_con_todo">Modelo 3</a>
+        </nav>
+    <div class="container">
+        
+        <!-- Características Generales -->
+        <div class="section">
+            <h2>Características Generales</h2>
+            <div class="form-container">
+            <div class="form-group">
+                <label>Cliente:</label>  <!-- cliente-->
+                <select name ="cliente"><option></option>
+                    <option>BHP</option>
+                    <option>MLP</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Proveedores:</label>
+                <select name = "proveedores"><option></option> <!--proveedores-->
+                    <option>PENTA</option>
+                    <option>K1111</option>
+                    <option>DLS</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>HH:</label>
+                <input type="text" name="HH" placeholder="Label*"> <!--HH-->
+            </div>
+            <div class="form-group">
+                <label>Entregables:</label>
+                <input type="text" name = "entregables" placeholder="Label*"> <!--entregables-->
+            </div>
+        
+            
+        </div>
+        <div class="form-container">
+            <div class="form-group">
+                <label>Precio propuesta:</label>
+                <input type="text" name="precio_propuesta" placeholder="Label*"> 
+            </div>
+            <div class="form-group">
+                <label>Precio keypro:</label>
+                <input type="text" name="precio_keypro" placeholder="Label*"> 
+        </div>
+        <div class="boton-opciones">
+            <button type="button" class="boton-opcion" onclick="toggleSeleccion(this, 'detalles_modelo')">Detalles Modelo</button>
+            <div class="textarea-contenedor">
+                <div class="resumen-resultado">
+                  Accuracy: <strong>67%</strong><br><br>
+                  Precision <span class="perdidas">propuestas perdidas</span>: <strong>73%</strong><br>
+                  Precision <span class="ganadas">propuestas ganadas</span>: <strong>52%</strong><br><br>
+                  Recall: <strong>80%</strong> <span class="perdidas">(de las verdaderas perdidas detecta el 80%)</span><br>
+                  Recall: <strong>43%</strong> <span class="ganadas">(de las verdaderas ganadas detecta el 43%)</span><br><br>
+                  Propuestas perdidas: <strong>176</strong><br>
+                  Propuestas ganadas: <strong>90</strong><br><br>
+                  Pseudo R²: <span class="pseudo">-0.0076</span> → modelo no captura bien la estructura
+                </div>
+              </div>
+            
+        </div>
+        <br><br>
+        
+        <input type="hidden" name="disciplinas" id="disciplinas">
+        <script>
+function toggleSeleccion(button, label) {
+        const contenedor = button.parentNode.querySelector('.textarea-contenedor');
+        if (contenedor.style.display === 'none') {
+            contenedor.style.display = 'block';
+        } else {
+            contenedor.style.display = 'none';
+        }
+    }
+
+        </script>
+   
+    <button type="submit">Enviar</button>
+    
+</form>
+</div>
+<div class="imagen-resultado">
+    <h2>Impacto de las variables</h2>
+    <img src="{{ url_for('static', filename='images/impacto_variables_modelosimple_sinfondo.png') }}" alt="Impacto de las variables" style="max-width: 100%; height: auto;">
+</div>
+
+</body>
+<div class="imagen-resultado">
+    <h2>Impacto de las variables</h2>
+    <img src="{{ url_for('static', filename='images/heatmap_variables_modelosimple_sinfondo.png') }}" alt="Impacto de las variables" style="max-width: 100%; height: auto;">
+</div>
+<h1>Impacto de Cambios en Variables</h1>
+
+<table class="tabla-impacto">
+    <thead>
+        <tr>
+            <th>Variable</th>
+            <th>Valor Actual</th>
+            <th>Nuevo Valor</th>
+            <th>Probabilidad Inicial</th>
+            <th>Probabilidad Nueva</th>
+            <th>Impacto (%)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>UF/HH</td>
+            <td>100</td>
+            <td>200</td>
+            <td>50,01</td>
+            <td>50,03</td>
+            <td class="positivo">+0,01</td>
+        </tr>
+        <tr>
+            <td>UF/Entr.</td>
+            <td>100</td>
+            <td>200</td>
+            <td>51,99</td>
+            <td>53,97</td>
+            <td class="positivo">+1,98</td>
+        </tr>
+        <tr>
+            <td>UF</td>
+            <td>100</td>
+            <td>200</td>
+            <td>49,76</td>
+            <td>49,52</td>
+            <td class="negativo">-0,24</td>
+        </tr>
+        <tr>
+            <td>Entr.</td>
+            <td>100</td>
+            <td>200</td>
+            <td>49,71</td>
+            <td>49,41</td>
+            <td class="negativo">-0,29</td>
+        </tr>
+        <tr>
+            <td>Contrato Marco_x</td>
+            <td>100</td>
+            <td>200</td>
+            <td>50,02</td>
+            <td>50,04</td>
+            <td class="positivo">+0,02</td>
+        </tr>
+        <tr>
+            <td>Cliente_x</td>
+            <td>100</td>
+            <td>200</td>
+            <td>50,01</td>
+            <td>50,02</td>
+            <td class="positivo">+0,01</td>
+        </tr>
+        <tr>
+            <td>Precio Total</std>
+            <td>100</td>
+            <td>200</td>
+            <td>50</td>
+            <td>50</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>HH</td>
+            <td>100</td>
+            <td>200</td>
+            <td>49,92</td>
+            <td>49,84</td>
+            <td class="negativo">-0,08</td>
+        </tr>
+        <tr>
+            <td>Precio Keypro</td>
+            <td>100</td>
+            <td>200</td>
+            <td>50</td>
+            <td>50</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>UF Keypro</td>
+            <td>100</td>
+            <td>200</td>
+            <td>52,36</td>
+            <td>54,7</td>
+            <td class="positivo">+2,35</td>
+        </tr>
+    </tbody>
+</table>
+</html>
