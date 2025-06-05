@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_excel("version_conHH.xlsx", engine="openpyxl", header=2)
+df = pd.read_excel("funciones/version_conHH.xlsx", engine="openpyxl", header=2)
 
 def filtrar_datos(df,tipo_cliente=None, tipo_ingenieria=None, contrato_marco=None):
     filtro = df
