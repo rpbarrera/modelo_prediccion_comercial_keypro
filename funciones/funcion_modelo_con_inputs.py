@@ -6,7 +6,7 @@ import pandas as pd
 
 modelo = joblib.load("modelo_entrenado.pkl")
 
-df = pd.read_excel(r"C:/Users/renata.barrera/OneDrive - KEYPRO/Escritorio/análisis datos/con_HH/prueba_modelo/version_conHH.xlsx", engine="openpyxl", header=2)
+df = pd.read_excel(r"version_conHH.xlsx", engine="openpyxl", header=2)
 
 def filtrar_datos(df,tipo_cliente=None, tipo_ingenieria=None, contrato_marco=None):
     filtro = df
